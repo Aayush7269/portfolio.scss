@@ -1,0 +1,134 @@
+:root {
+  --color-dark: #2a2a2a;
+  --color-yellow: #ffca2f;
+  --body-bg:#fff;
+  --text-color: #000;
+  --link-color: #0e76a8;
+  --border-color: #2a2a2a;
+  --dark-bg: #2a2a2a;
+  --dark-text-color: #fff;
+  --dark-link-color:#ffca2f;
+  --dark-border-color: #fff;
+}
+
+* {
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Montserrat", sans-serif;
+  scroll-behavior: smooth;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.flex {
+  display: flex;
+  gap: 1rem;
+}
+
+ul {
+  list-style: none;
+}
+
+.dark-mode-checkbox:checked + .wrapper {
+  --color-yellow:var(--dark-bg);
+  --body-bg: var(--dark-bg);
+  --text-color: var(--dark-text-color);
+}
+
+body {
+  line-height: 1.5;
+}
+
+#darkmode {
+  display: none;
+  position: fixed;
+  top: 6rem;
+  left: 1rem;
+}
+
+.dark-mode-toggle {
+  position: fixed;
+  top: 8rem;
+  left: 2rem;
+  cursor: pointer;
+}
+.dark-mode-toggle:hover {
+  transform: scale(1.5);
+  transition: all 0.5sec;
+}
+
+.wrapper {
+  background: var(--body-bg);
+  min-height: 100vh;
+}
+
+.primaryheader {
+  background: var(--body-bg);
+  box-shadow: 0 0 3px 3px black;
+  position: sticky;
+  top: 0;
+  justify-content: space-around;
+  align-items: center;
+  padding: 1rem 2rem;
+  z-index: 99;
+}
+
+.logo {
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+.logo div:nth-child(1) h1 {
+  font-size: 1.8rem;
+}
+.logo div:nth-child(2) h1 {
+  font-size: 1rem;
+}
+.logo .line::before {
+  content: "";
+  background: var(--color-yellow);
+  height: 80%;
+  width: 5px;
+  position: absolute;
+  left: 55%;
+}
+
+.right #check,
+.right .menu-icon {
+  display: none;
+}
+.right .navigation {
+  padding: 0;
+  margin: 0;
+  gap: 2.5rem;
+}
+.right .navigation li a:hover {
+  color: var(--color-yellow);
+  transition: color 0.5sec;
+}
+
+@media (width <= 768px) {
+  .primaryheader .right .menu-icon {
+    display: block;
+  }
+  .primaryheader .right .navigation {
+    flex-direction: column;
+    width: 15rem;
+    height: 100vh;
+    background: var --body-bg;
+    left: 100%;
+    position: fixed;
+    top: 4.7rem;
+    transition: 0.5s ease-in;
+    border: 0 0 0 1px solid grey;
+  }
+  .primaryheader .right .navigation li {
+    padding-left: 1rem;
+  }
+  .primaryheader .right #check:checked ~ ul {
+    left: calc(100% - 15rem);
+  }
+}/*# sourceMappingURL=style.css.map */
